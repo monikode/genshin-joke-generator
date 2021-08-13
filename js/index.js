@@ -72,14 +72,11 @@ var app = new Vue({
     formatedJoke: function() {
         var str = this.piada
         var char = this.characters[this.character]
-        str = str.replaceAll(/Chuck Norris/ig, char.name);
-        str = str.replaceAll("Chuck", char.name);
-        str = str.replaceAll("Norris", char.name);
+        str = str.replaceAll(/Chuck Norris/ig, char.name).replaceAll(/Chuck/ig, char.name).replaceAll(/Norris/ig, char.name);
+
         if (char.pronoun == "she") {
-          str = str.replaceAll(" he ", " she ");
-          str = str.replaceAll(" he ", " she ");
-          str = str.replaceAll(" his ", " her ");
-          str = str.replaceAll(" him ", " her ");
+          str = str.replaceAll(" he ", " she ").replaceAll(" his ", " her ").replaceAll(" him ", " her ");
+          str = str.replaceAll(" He ", " She ").replaceAll(" His ", " Her ").replaceAll(" Him ", " Her ");
         }
         console.log(str)
 
