@@ -3,6 +3,6 @@ Genshin Joke Generator using Chuck Norris API and Vue.js.
 - [x] API Integration
 - [ ] Style
 - [ ] Animation
-- [ ] Twitter Integration
-- [ ] Image Export
+- [x] Twitter Integration
+- [x] Image Export
 - [ ] Responsivity
