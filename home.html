@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="to-img" style="display: none">
+        <canvas id="my-canvas" height="600" width="800"> </canvas>
+        <img
+          :src="getCanvasCharImg()"
+          id="canvas-img"
+          height="437"
+          crossorigin="anonymous"
+        />
+        <img
+          :src="getCanvasVisionImg()"
+          id="canvas-vision"
+          width="318"
+          crossorigin="anonymous"
+        />
+      </div>
+      <div id="left">
+        <div class="info"></div>
+        <img :src="getVisionImg()" id="vision" />
+        <div id="char"></div>
+      </div>
+      <div id="right">
+        <select v-model="character">
+          <option>Character</option>
+          <option v-for="(opt, i) in characters" :value="i" :key="i">
+            {{opt.name}}
+          </option>
+        </select>
+        <select v-model="category">
+          <option value="-1">Category</option>
+          <option v-for="(opt, i) in categories" :value="i" :key="i">
+            {{opt}}
+          </option>
+        </select>
+        <div id="name">{{characters[character].name}}</div>
+        <div id="joke">{{formatedJoke}}</div>
+        <a
+          class="twitter-share-button"
+          id="twitter"
+          href="https://twitter.com/intent/tweet?text=Hello%20world%20"
+        >
+          Tweet
+        </a>
+
+        <div class="bottom">
+          <button @click="onRandom()" class="generate">Generate</button>
+          <button @click="generateCanvas()" class="share">Share</button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"
+      integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
