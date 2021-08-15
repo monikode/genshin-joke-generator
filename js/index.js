@@ -50,6 +50,10 @@ var app = new Vue({
   watch: {
     character: function () {
       var str = this.characters[this.character].name.toLowerCase();
+      var vision = this.characters[this.character].vision.toLowerCase();
+      document.getElementById(
+        "name"
+      ).style.color = `var(--${vision})`;
 
       document.getElementById("char").style.backgroundImage =
         "url(assets/" + str + ".png)";
@@ -135,12 +139,12 @@ var app = new Vue({
       var ctx = myCanvas.getContext("2d");
       const dataURI = myCanvas.toDataURL("image/jpeg");
       console.log(dataURI);
-      
+
       tt.click();
     },
     downloadCanvas: () => {
       var link = document.getElementById("download");
-      app.generateCanvas()
+      app.generateCanvas();
       var myCanvas = document.getElementById("my-canvas");
       var ctx = myCanvas.getContext("2d");
       const dataURI = myCanvas.toDataURL("image/jpeg");
@@ -251,8 +255,11 @@ var app = new Vue({
       if (xhttp.readyState == 4 && xhttp.status == 200) {
         var res = JSON.parse(xhttp.responseText);
         this.categories = res;
+    this.onRandom()
+
       }
     };
+
     xhttp.send();
   },
 });

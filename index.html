@@ -25,45 +25,64 @@
           width="318"
           crossorigin="anonymous"
         />
-        <a id="tweet"></a>
+        <a id="twitter"></a>
         <a id="download" download="canvas.png"></a>
       </div>
       <div id="left">
-        <div class="info"></div>
+        <div class="info">
+          <div>DEVELOPED BY MONIKODE</div>
+          <a href="https://api.chucknorris.io/">
+            <img
+              src="https://assets.chucknorris.host/img/avatar/chuck-norris.png"
+              height="30"
+          /></a>
+          <a href="https://github.com/monikode/genshin-joke-generator">
+            <img src="assets/github.svg" height="25" />
+          </a>
+          <a>
+            <img src="assets/info.svg" height="25" />
+          </a>
+        </div>
         <img :src="getVisionImg()" id="vision" />
         <div id="char"></div>
       </div>
       <div id="right">
-        <select v-model="character">
-          <option>Character</option>
-          <option v-for="(opt, i) in characters" :value="i" :key="i">
-            {{opt.name}}
-          </option>
-        </select>
-        <select v-model="category">
-          <option value="-1">Category</option>
-          <option v-for="(opt, i) in categories" :value="i" :key="i">
-            {{opt}}
-          </option>
-        </select>
-        <div id="name">{{characters[character].name}}</div>
-        <div id="joke">{{formatedJoke}}</div>
-        <a
-          class="twitter-share-button"
-          id="twitter"
-          href="https://twitter.com/intent/tweet?text="
-        >
-          Tweet
-        </a>
+        <div id="top">
+          <div>
+            <select v-model="character">
+              <option>Character</option>
+              <option v-for="(opt, i) in characters" :value="i" :key="i">
+                {{opt.name}}
+              </option>
+            </select>
+          </div>
+          <div>
+            <select v-model="category">
+              <option value="-1">Category</option>
+              <option v-for="(opt, i) in categories" :value="i" :key="i">
+                {{opt}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="center">
+          <div id="name">{{characters[character].name}}</div>
+          <div id="joke">{{formatedJoke}}</div>
+        </div>
 
         <div class="bottom">
           <button @click="onRandom()" class="generate">Generate</button>
 
           <button class="share">
-            Share
+            <img src="assets/share.svg" />
             <div id="share-options">
-              <div  @click="downloadCanvas()">Download</div>
-              <div  @click="tweet()">Tweet</div>
+              <div @click="downloadCanvas()" id="download">
+                <img src="assets/download.svg">
+              </div>
+              <div @click="tweet()">
+                <img src="assets/twitter.svg">
+              </div>
             </div>
           </button>
         </div>

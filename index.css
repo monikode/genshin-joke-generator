@@ -1,118 +1,203 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  font-family: "Poppins";
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 }
 
-body, html {
-    height: 100%;
-    --anemo: rgb(3, 138, 86);
-    --pyro: rgb(161, 4, 4);
-    --hydro: rgb(4, 33, 161);
-    --geo: #b95300;
-    --cryo: rgb(3, 109, 141);
-    --electro: rgb(129, 63, 124);
-    --char-height: 460px;
+body,
+html {
+  height: 100%;
+  --anemo: rgb(3, 138, 86);
+  --pyro: rgb(161, 4, 4);
+  --hydro: rgb(4, 33, 161);
+  --geo: #b95300;
+  --cryo: rgb(3, 109, 141);
+  --electro: rgb(129, 63, 124);
+  --char-height: 460px;
 }
 
 body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 button {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 30px;
-    cursor: pointer;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 #app {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background-color: blanchedalmond;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: blanchedalmond;
 }
 
 #left {
-    position: relative;
-    background-color: var(--geo);
-    width: 30%;
+  position: relative;
+  background-color: var(--geo);
+  width: 30%;
 }
 
 #left .info {
-    width: calc(100% + 100px);
-    background-color: #0c0c0d;
-    height: 100px;
+  position: relative;
+  box-sizing: border-box;
+  width: calc(100% + 100px);
+  background-color: #0c0c0d;
+  min-height: 80px;
+  display: grid;
+  grid-gap: 30px;
+  padding: 20px;
+  grid-template-columns: 1fr min-content min-content min-content;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 600;
+  z-index: 4;
+}
+
+.info a {
+  cursor: pointer;
 }
 
 #char {
-    position: absolute;
-    width: 400px;
-    right: -150px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(assets/aether.png);
-    top: calc(50% - var(--char-height) / 2);
-    height: var(--char-height);
+  position: absolute;
+  width: 400px;
+  right: -150px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(assets/aether.png);
+  top: calc(50% - var(--char-height) / 2);
+  height: var(--char-height);
 }
 
 #vision {
-    position: absolute;
-    right: 70px;
-    bottom: 50px;
-    opacity: 0.38;
-    height: 300px;
+  position: absolute;
+  right: 0;
+  top: calc(50%);
+  opacity: 0.1;
+  height: 50%;
+  background-position: right;
+  background-size: contain;
 }
 
 #right {
-    position: relative;
-    box-sizing: border-box;
-    width: 70%;
-    padding: 150px;
+  position: relative;
+  box-sizing: border-box;
+  width: 70%;
+  padding: 150px;
+  z-index: 1;
 }
 
+.center {
+  position: absolute;
+  top: 130px;
+  height: calc(100% - 300px);
+  width: calc(100% - 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#top {
+  position: absolute;
+  top: 20px;
+  left: 150;
+  width: calc(100% - 300px);
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+}
+
+#top select {
+    box-sizing: border-box;
+  height: 40px;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  position: relative;
+  background: none;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#top > div {
+  position: relative;
+  background-color: #ffffff;
+}
+
+#top ::before {
+  content: "";
+  background-image: url(assets/arrow-down.svg);
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: calc(50% - 5px);
+  right: 10px;
+}
+#name {
+  height: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--geo);
+}
+#joke {
+  font-size: 32px;
+}
 #right .bottom {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: calc(100% - 100px);
-    background-color: #0c0c0d;
-    height: 100px;
-    display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 100px);
+  background-color: #0c0c0d;
+  height: 100px;
+  display: flex;
 }
 
 .bottom button {
-    height: 100%;
-    background: none;
-    outline: none;
-    border:none;
-    color: #ffffff;
+  height: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  z-index: 5;
 }
 
 .bottom .generate {
-    flex: 1
+  flex: 1;
 }
 
 .bottom .share {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  padding: 0 50px;
 }
 
 .bottom .share:hover {
-    overflow: visible;
+  overflow: visible;
 }
 
 #share-options {
-    position: absolute;
-    right: 0;
-    top: -100px;
-    background-color: var(--geo);
-    height: 100px;
+  position: absolute;
+  right: 0;
+  top: -150px;
+  background-color: var(--geo);
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#share-options div{
+    padding: 20px;
 }
