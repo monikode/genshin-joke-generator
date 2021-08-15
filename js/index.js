@@ -127,6 +127,27 @@ var app = new Vue({
       document.getElementById("left").style.backgroundColor = `var(--${str})`;
       return "assets/" + str + ".png";
     },
+    tweet: () => {
+      var tt = document.getElementById("twitter");
+      tt.href = `https://twitter.com/intent/tweet?text="${app.formatedJoke}"%20via%20https%3A%2F%2Fmonikode.github.io%2Fgenshin-joke-generator%2F`;
+
+      var myCanvas = document.getElementById("my-canvas");
+      var ctx = myCanvas.getContext("2d");
+      const dataURI = myCanvas.toDataURL("image/jpeg");
+      console.log(dataURI);
+      
+      tt.click();
+    },
+    downloadCanvas: () => {
+      var link = document.getElementById("download");
+      app.generateCanvas()
+      var myCanvas = document.getElementById("my-canvas");
+      var ctx = myCanvas.getContext("2d");
+      const dataURI = myCanvas.toDataURL("image/jpeg");
+      console.log(dataURI);
+      link.href = dataURI;
+      link.click();
+    },
     generateCanvas: () => {
       var myCanvas = document.getElementById("my-canvas");
       var ctx = myCanvas.getContext("2d");
@@ -175,24 +196,6 @@ var app = new Vue({
       ctx.drawImage(img, 10, 10);
 
       const dataURI = myCanvas.toDataURL("image/jpeg");
-
-      // console.log(dataURI, typeof dataURI, decodeURI(dataURI));
-      console.log(decodeURI(dataURI));
-      var link = document.createElement("a");
-      var tt = document.getElementById("twitter");
-      // link.download = 'joke';
-      link.target = "_blank";
-
-      fetch(dataURI)
-        .then((res) => res.blob())
-        .then((blob) => {
-          
-          var url = URL.createObjectURL(blob);
-        
-          tt.href += url;
-          link.href = url;
-          link.click();
-        });
     },
     onRandom: () => {
       var url = "https://api.chucknorris.io/jokes/random"; //Sua URL

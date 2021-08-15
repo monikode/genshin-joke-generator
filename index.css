@@ -99,3 +99,20 @@ button {
 .bottom .generate {
     flex: 1
 }
+
+.bottom .share {
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom .share:hover {
+    overflow: visible;
+}
+
+#share-options {
+    position: absolute;
+    right: 0;
+    top: -100px;
+    background-color: var(--geo);
+    height: 100px;
+}

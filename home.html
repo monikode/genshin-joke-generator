@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="index.css" />
 
     <title>Document</title>
@@ -24,6 +25,8 @@
           width="318"
           crossorigin="anonymous"
         />
+        <a id="tweet"></a>
+        <a id="download" download="canvas.png"></a>
       </div>
       <div id="left">
         <div class="info"></div>
@@ -48,14 +51,21 @@
         <a
           class="twitter-share-button"
           id="twitter"
-          href="https://twitter.com/intent/tweet?text=Hello%20world%20"
+          href="https://twitter.com/intent/tweet?text="
         >
           Tweet
         </a>
 
         <div class="bottom">
           <button @click="onRandom()" class="generate">Generate</button>
-          <button @click="generateCanvas()" class="share">Share</button>
+
+          <button class="share">
+            Share
+            <div id="share-options">
+              <div  @click="downloadCanvas()">Download</div>
+              <div  @click="tweet()">Tweet</div>
+            </div>
+          </button>
         </div>
       </div>
     </div>
